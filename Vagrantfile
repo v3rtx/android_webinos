@@ -69,12 +69,12 @@ Vagrant::Config.run do |config|
   # some recipes and/or roles.
   #
   config.vm.provision :chef_solo do |chef|
-    #chef.cookbooks_path = "cookbooks"
-    #chef.add_recipe "apt"
-    #chef.add_recipe "nodejs"
-    #chef.add_recipe "git"
-    #chef.add_recipe "python"
-    #chef.add_recipe "build-webinos"
+    chef.cookbooks_path = "cookbooks"
+    chef.add_recipe "apt"
+    chef.add_recipe "nodejs"
+    chef.add_recipe "git"
+    chef.add_recipe "python"
+    chef.add_recipe "build-webinos"
     chef.add_recipe "build-webinos-android"
     #chef.rest_timeout = 6400
 
