@@ -17,31 +17,7 @@
 # limitations under the License.
 #
 
-execute "install wget" do
+execute "install python" do
   user "root"
-  command "apt-get install wget"
-end
-
-directory "/opt/Webinos-Platform" do
-  owner "vagrant"
-  group "vagrant"
-  mode "0755"
-  action :create
-end
-
-execute "download android SDK" do
-  cwd "/opt/Webinos-Platform"
-  command "wget http://dl.google.com/android/adt/adt-bundle-linux-x86-20130219.zip"
-  timeout 12000
-  retries 3
-end
-
-execute "install unzip" do
-  user "root"
-  command "apt-get install unzip"
-end
-
-execute "download android SDK" do
-  cwd "/opt/Webinos-Platform"
-  command "unzip adt-bundle-linux-x86-20130219.zip"
+  command "apt-get install python2.7 -y"
 end
