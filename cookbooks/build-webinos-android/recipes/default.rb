@@ -31,7 +31,7 @@ end
 
 execute "download android SDK" do
   cwd "/opt/Webinos-Platform"
-  command "curl -o android_sdk.tgz http://dl.google.com/android/android-sdk_r21.1-linux.tgz"
+  command "curl -o android_sdk.zip http://dl.google.com/android/adt/adt-bundle-linux-x86-20130219.zip"
   timeout 12000
   retries 3
 end
@@ -43,7 +43,7 @@ end
 
 execute "unpack android SDK" do
   cwd "/opt/Webinos-Platform"
-  command "tar zxf android_sdk.tgz"
+  command "unzip android_sdk.zip"
 end
 
 directory "/opt/Webinos-Platform/anode" do
@@ -80,7 +80,7 @@ execute "Build webinos-android" do
   command "ant"
   #retries 3
   #environment 'HOME' => '/home/vagrant'
-  environment 'ANDROID_HOME' 	=> '/opt/Webinos-Platform/android-sdk-linux/',
+  environment 'ANDROID_HOME' 	=> '/opt/Webinos-Platform/adt-bundle-linux-x86-20130219/sdk',
 	      'ANODE_ROOT'	=> '/opt/Webinos-Platform/anode/'
 end
 
