@@ -9,9 +9,6 @@ Vagrant::Config.run do |config|
   # Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = "precise32"
   
-  config.vm.customize ["modifyvm", :id, "--memory", 2048]
-  
-
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
   config.vm.box_url = "http://files.vagrantup.com/precise32.box"
@@ -76,8 +73,7 @@ Vagrant::Config.run do |config|
     chef.add_recipe "python"
     chef.add_recipe "build-webinos"
     chef.add_recipe "build-webinos-android"
-    #chef.rest_timeout = 6400
-
+    
     chef.json.merge!({
       :nodejs => {
         :version => "0.8.14"

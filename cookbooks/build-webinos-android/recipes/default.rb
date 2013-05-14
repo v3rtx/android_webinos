@@ -69,17 +69,17 @@ execute "Change android-sdk folder mode" do
 end
 
 execute "Change android-sdk folder mode" do
-  #user "root"
   command "chmod -R 0755  /opt/Webinos-Platform/"
 end
 
+execute "install android 2.3.3 SDK" do
+  cwd "/opt/Webinos-Platform/adt-bundle-linux-x86-20130219/sd/tools"
+  command "bash  android update sdk -u -a -f -t 1,2,11,27,41,51"
+end
+
 execute "Build webinos-android" do
-  user "vagrant"
-  group "vagrant"
   cwd "/opt/Webinos-Platform/webinos/platform/android"
   command "ant"
-  #retries 3
-  #environment 'HOME' => '/home/vagrant'
   environment 'ANDROID_HOME' 	=> '/opt/Webinos-Platform/adt-bundle-linux-x86-20130219/sdk',
 	      'ANODE_ROOT'	=> '/opt/Webinos-Platform/anode/'
 end
