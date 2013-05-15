@@ -73,7 +73,7 @@ execute "Change android-sdk folder mode" do
 end
 
 execute "install android 2.3.3 SDK" do
-  cwd "/opt/Webinos-Platform/adt-bundle-linux-x86-20130219/sd/tools"
+  cwd "/opt/Webinos-Platform/adt-bundle-linux-x86-20130219/sdk/tools"
   command "bash  android update sdk -u -a -f -t 1,2,11,27,41,51"
 end
 
